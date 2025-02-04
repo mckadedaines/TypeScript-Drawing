@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Drawing App</title>
-    <style>
-        canvas {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modern Drawing App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <div class="control-group">
+        <label for="toolSelect">Tool:</label>
+        <select id="toolSelect">
+          <option value="brush">Brush</option>
+          <option value="stamp">Stamp</option>
+          <option value="eraser">Eraser</option>
+        </select>
+      </div>
+      <div class="control-group brush-controls">
+        <label for="brushType">Brush Type:</label>
+        <select id="brushType">
+          <option value="round">Round</option>
+          <option value="square">Square</option>
+          <option value="rainbow">Rainbow</option>
+          <option value="spray">Spray</option>
+          <option value="calligraphy">Calligraphy</option>
+        </select>
+      </div>
+      <div class="control-group stamp-controls" style="display: none">
+        <label for="stampType">Stamp:</label>
+        <select id="stampType">
+          <option value="star">Star</option>
+          <option value="circle">Circle</option>
+          <option value="heart">Heart</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#000000" />
+      </div>
+      <div class="control-group">
+        <label for="brushSize">Size:</label>
+        <input type="range" id="brushSize" min="1" max="50" value="5" />
+        <span id="brushSizeValue">5px</span>
+      </div>
+      <div class="control-group">
+        <label for="opacity">Opacity:</label>
+        <input type="range" id="opacity" min="1" max="100" value="100" />
+        <span id="opacityValue">100%</span>
+      </div>
+      <button id="clearCanvas">Clear Canvas</button>
+      <button id="undoButton">Undo</button>
+    </div>
     <canvas id="drawingCanvas" width="800" height="600"></canvas>
-    <script src="drawingApp.js"></script> <!-- Note: This will reference the compiled JavaScript -->
-</body>
+    <script src="drawingApp.js" type="module"></script>
+  </body>
 </html>

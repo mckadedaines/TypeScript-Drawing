@@ -1,0 +1,201 @@
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --secondary: #64748b;
+  --secondary-hover: #475569;
+  --background: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  margin: 0;
+  padding: 32px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  background-image: radial-gradient(
+      circle at 100% 100%,
+      #e0e7ff 0%,
+      transparent 20%
+    ),
+    radial-gradient(circle at 0% 0%, #ddd6fe 0%, transparent 20%);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+}
+
+.controls {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  max-width: 800px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 140px;
+  position: relative;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 70px;
+}
+
+input[type="color"] {
+  width: 56px;
+  height: 36px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 2px;
+  background: var(--card-bg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+input[type="color"]:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+input[type="range"] {
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background-color: var(--card-bg);
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 120px;
+  color: var(--text);
+  transition: all 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px top 50%;
+  background-size: 10px auto;
+  padding-right: 30px;
+}
+
+select:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 100px;
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+#undoButton {
+  background-color: var(--secondary);
+}
+
+#undoButton:hover {
+  background-color: var(--secondary-hover);
+}
+
+#clearCanvas {
+  background-color: var(--danger);
+}
+
+#clearCanvas:hover {
+  background-color: var(--danger-hover);
+}
+
+canvas {
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  background-color: var(--card-bg);
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+}
+
+/* Value displays */
+#brushSizeValue,
+#opacityValue {
+  min-width: 45px;
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .controls {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .control-group {
+    min-width: 120px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+}

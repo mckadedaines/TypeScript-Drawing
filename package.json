@@ -1,12 +1,24 @@
 {
   "name": "typescript-drawing",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modern TypeScript drawing application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "lite-server",
+    "build": "tsc",
+    "dev": "concurrently \"tsc --watch\" \"lite-server\"",
+    "watch": "tsc --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "drawing",
+    "typescript",
+    "canvas"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "lite-server": "^2.6.1",
+    "typescript": "^5.3.3"
+  }
 }
